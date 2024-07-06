@@ -1,2 +1,10 @@
 TBD
 
+
+
+
+
+## License
+
+**AGPLv3**
+
