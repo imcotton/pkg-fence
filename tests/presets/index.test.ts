@@ -49,6 +49,26 @@ describe('presets', function () {
 
         });
 
+        const lodash = true;
+        const lodash_merge = 'lodash.merge';
+
+        it(`has ${ lodash_merge } on lodash`, function () {
+
+            const check = make_predicate({ lodash });
+
+            assert__true(check('lodash'), 'lodash');
+            assert__true(check(lodash_merge), lodash_merge);
+
+        });
+
+        it(`has NO ${ lodash_merge } on nolyfill`, function () {
+
+            const check = make_predicate({ nolyfill });
+
+            assert_false(check(lodash_merge), lodash_merge);
+
+        });
+
     });
 
 });
