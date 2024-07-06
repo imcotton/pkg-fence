@@ -1,6 +1,6 @@
 import { make_scanner } from './scanner/index.ts';
 import { make_predicate } from './presets/index.ts';
-import { filter, split_by_comma } from './common.ts';
+import { filter, lookup, split_by_comma } from './common.ts';
 
 
 
@@ -29,11 +29,11 @@ export function collect ({ flags, lines }: {
 
 }): AsyncIterable<string> {
 
-    const { extra, ignore, ...rest } = flags;
+    const { extra = [], ignore = [], ...rest } = flags;
 
     const pred = make_predicate({
-        extra: extra?.flatMap(split_by_comma),
-        ignore: ignore?.flatMap(split_by_comma),
+        extra: lookup(extra.flatMap(split_by_comma)),
+        ignore: lookup(ignore.flatMap(split_by_comma)),
         ...rest,
     });
 

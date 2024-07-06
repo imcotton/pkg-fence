@@ -2,6 +2,8 @@ import { describe, it } from '@std/testing/bdd';
 
 import { assert_false, assert__true } from '../utils.ts';
 
+import { lookup } from '../../src/common.ts';
+
 import {
 
     make_predicate,
@@ -41,7 +43,9 @@ describe('presets', function () {
 
         it(`has NO ${ isarray } on nolyfill with ignore`, function () {
 
-            const check = make_predicate({ nolyfill, ignore: [ isarray ] });
+            const ignore = lookup([ isarray ]);
+
+            const check = make_predicate({ nolyfill, ignore });
 
             assert_false(check(__w__a__t__), __w__a__t__);
             assert_false(check(isarray), isarray);
