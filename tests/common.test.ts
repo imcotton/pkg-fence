@@ -15,6 +15,12 @@ import {
 
 
 
+const eq = asserts.assertEquals;
+
+
+
+
+
 describe('common', function () {
 
     describe('any', function () {
