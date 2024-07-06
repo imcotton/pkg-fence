@@ -1,4 +1,5 @@
 import { describe, it } from '@std/testing/bdd';
+import * as asserts from '@std/assert';
 
 import { assert_false, assert__true } from './utils.ts';
 
@@ -6,6 +7,7 @@ import {
 
     any,
     lookup,
+    split_by_comma,
     always_true,
     always_false,
 
@@ -22,6 +24,22 @@ const eq = asserts.assertEquals;
 
 
 describe('common', function () {
+
+    describe('split_by_comma', function () {
+
+        it('split by comma and trimmed', function () {
+
+            const arr = [ 'foo', 'bar' ];
+
+            eq(split_by_comma('foo,bar'), arr);
+            eq(split_by_comma('foo ,bar'), arr);
+            eq(split_by_comma('foo, bar'), arr);
+            eq(split_by_comma('foo , bar'), arr);
+            eq(split_by_comma(' foo , bar '), arr);
+
+        });
+
+    });
 
     describe('any', function () {
 
