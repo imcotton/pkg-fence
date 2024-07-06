@@ -7,6 +7,7 @@ import {
 
     any,
     lookup,
+    split_by,
     split_by_comma,
     always_true,
     always_false,
@@ -24,6 +25,22 @@ const eq = asserts.assertEquals;
 
 
 describe('common', function () {
+
+    describe('split_by', function () {
+
+        it('split by dash and NOT trimmed', function () {
+
+            const split_by_dash = split_by('-', false);
+
+            eq(split_by_dash('foo-bar'), [ 'foo', 'bar' ]);
+            eq(split_by_dash('foo -bar'), [ 'foo ', 'bar' ]);
+            eq(split_by_dash('foo- bar'), [ 'foo', ' bar' ]);
+            eq(split_by_dash('foo - bar'), [ 'foo ', ' bar']);
+            eq(split_by_dash(' foo - bar '), [ ' foo ', ' bar ']);
+
+        });
+
+    });
 
     describe('split_by_comma', function () {
 
