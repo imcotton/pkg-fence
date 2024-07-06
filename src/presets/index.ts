@@ -5,7 +5,7 @@ import * as nolyfill from './nolyfill.ts';
 export {    nolyfill };
 
 import type { Predicate } from '../common.ts';
-import { and, not, any, lookup } from '../common.ts';
+import { and, not, any, always_false } from '../common.ts';
 
 
 
@@ -32,19 +32,20 @@ export function * gen_presents (param: Partial<Readonly<Record<
 
 
 
-export function make_predicate ({ extra = [], ignore = [], ...rest }: {
+export function make_predicate ({ extra, ignore, ...rest }: {
 
-        extra?: ReadonlyArray<string> | undefined,
-        ignore?: ReadonlyArray<string> | undefined,
+        extra?: Predicate<string> | undefined,
+        ignore?: Predicate<string> | undefined,
 
 } & Parameters<typeof gen_presents>[0]): Predicate<string> {
 
+    const not_ignored = not(ignore ?? always_false);
+    const with_extra = extra ?? always_false;
+    const presents = Array.from(gen_presents(rest));
+
     return and(
-        not(lookup(ignore)),
-        any(
-            Array.from(gen_presents(rest)),
-            lookup(extra),
-        ),
+        not_ignored,
+        any(presents, with_extra),
     );
 
 }
