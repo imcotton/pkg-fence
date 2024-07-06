@@ -9,6 +9,7 @@ import {
     lookup,
     split_by,
     split_by_comma,
+    filter,
     always_true,
     always_false,
 
@@ -25,6 +26,24 @@ const eq = asserts.assertEquals;
 
 
 describe('common', function () {
+
+    describe('filter', function () {
+
+        it('filtered by predication', async function () {
+
+            const foo = 'foo';
+            const bar = 'bar';
+
+            const words = filter<string>(str => /^[a-z]/.test(str));
+            const source = ReadableStream.from([ foo, '123', bar, '456' ]);
+
+            const res = await Array.fromAsync(words(source));
+
+            eq(res, [ foo, bar ]);
+
+        });
+
+    });
 
     describe('split_by', function () {
 
