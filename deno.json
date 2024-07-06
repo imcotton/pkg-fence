@@ -34,18 +34,12 @@
   },
   "lock": false,
   "publish": {
-    "exclude": [
-      "./.git/",
-      "./.github/",
-      "./.vscode/",
-      "./.editorconfig",
-      "./.gitattributes",
-      "./tsconfig.json",
-      "./package.json",
-      "./package-lock.json",
-      "./npm-shrinkwrap.json",
-      "./deno.lock",
-      "node_modules/"
+    "include": [
+      "./tests",
+      "./src",
+      "./LICENSE.txt",
+      "./README.md",
+      "./deno.json"
     ]
   }
 }
