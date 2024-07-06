@@ -39,6 +39,7 @@
       "./.github/",
       "./.vscode/",
       "./.editorconfig",
+      "./.gitattributes",
       "./tsconfig.json",
       "./package.json",
       "./package-lock.json",
