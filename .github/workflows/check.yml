@@ -1,0 +1,32 @@
+name: Checking
+
+on: push
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Setup repo
+        uses: actions/checkout@v4
+
+      - name: Setup Deno
+        uses: denoland/setup-deno@v1
+        with:
+          deno-version: v1.x
+
+      - name: Run Check
+        run: deno check ./src/**/*.ts
+
+      - name: Run publish --dry-run
+        run: deno publish --dry-run --allow-dirty
+
+      - name: Run tests
+        run: |-
+          deno test --quiet --coverage --parallel ./tests
+          deno coverage --include=./src --lcov --output=cov.lcov
+          deno coverage --include=./src
+
