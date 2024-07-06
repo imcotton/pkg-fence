@@ -2,6 +2,7 @@ import { parseArgs } from 'node:util';
 import { createInterface } from 'node:readline';
 import { argv, stdin, exit } from 'node:process';
 
+import type { Fn } from '../common.ts';
 import { collect, type Flags } from '../collect.ts';
 
 
@@ -48,10 +49,24 @@ export function parse (args: Iterable<string>): Flags {
 
 
 
-export async function main (): Promise<void> {
+export async function main ({
 
-    const flags = parse(argv.slice(2));
-    const lines = createInterface({ input: stdin });
+        args = argv.slice(2),
+        input = stdin,
+        print = console.log,
+        quit = exit,
+
+}: {
+
+        args?: Iterable<string>,
+        input?: NodeJS.ReadableStream,
+        print?: Fn<unknown, void>,
+        quit?: Fn<number, void>,
+
+} = {}): Promise<void> {
+
+    const flags = parse(args);
+    const lines = createInterface(input);
 
     let code = 0;
 
@@ -61,11 +76,11 @@ export async function main (): Promise<void> {
             code = 1;
         }
 
-        console.log(pkg);
+        print(pkg);
 
     }
 
-    exit(code);
+    quit(code);
 
 }
 
