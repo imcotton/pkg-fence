@@ -1,7 +1,7 @@
 {
   "$schema": "https://deno.land/x/deno/cli/schemas/config-file.v1.json",
   "name": "@imcotton/pkg-fence",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "tbd",
   "license": "AGPL-3.0-or-later",
   "imports": {
