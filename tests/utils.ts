@@ -4,6 +4,16 @@ import { assertStrictEquals } from '@std/assert';
 
 
 
+export function make_lines (str: string): AsyncIterable<string> {
+
+    return ReadableStream.from(str.split('\n'));
+
+}
+
+
+
+
+
 export function assert__true (
 
         value: unknown,
