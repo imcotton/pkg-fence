@@ -6,17 +6,17 @@ import { filter, lookup, split_by_comma } from './common.ts';
 
 
 
-export type Flags = Readonly<{
+export interface Flags {
 
-    extra?: ReadonlyArray<string> | undefined,
+    readonly extra?: ReadonlyArray<string>;
 
-    ignore?: ReadonlyArray<string> | undefined,
+    readonly ignore?: ReadonlyArray<string>;
 
-    lodash?: boolean | undefined,
+    readonly lodash?: boolean;
 
-    nolyfill?: boolean | undefined,
+    readonly nolyfill?: boolean;
 
-}>;
+}
 
 
 
