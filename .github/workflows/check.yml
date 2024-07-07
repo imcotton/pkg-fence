@@ -4,6 +4,7 @@ on: push
 
 permissions:
   contents: read
+  id-token: write
 
 jobs:
   test:
@@ -31,4 +32,10 @@ jobs:
         run: |-
           deno coverage --include=./src --lcov --output=cov.lcov
           deno coverage --include=./src
+
+      - name: Run Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          files: cov.lcov
+          use_oidc: true
 
