@@ -11,7 +11,7 @@ import { and, not, any, always_false } from '../common.ts';
 
 
 
-export function * gen_presents (param: Partial<Readonly<Record<
+export function * gen_presets (param: Partial<Readonly<Record<
 
         | 'lodash'
         | 'nolyfill'
@@ -37,15 +37,15 @@ export function make_predicate ({ extra, ignore, ...rest }: {
         extra?: Predicate<string> | undefined,
         ignore?: Predicate<string> | undefined,
 
-} & Parameters<typeof gen_presents>[0]): Predicate<string> {
+} & Parameters<typeof gen_presets>[0]): Predicate<string> {
 
     const not_ignored = not(ignore ?? always_false);
     const with_extra = extra ?? always_false;
-    const presents = Array.from(gen_presents(rest));
+    const presets = Array.from(gen_presets(rest));
 
     return and(
         not_ignored,
-        any(presents, with_extra),
+        any(presets, with_extra),
     );
 
 }
