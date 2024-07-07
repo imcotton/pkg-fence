@@ -1,7 +1,7 @@
 import { describe, it } from '@std/testing/bdd';
 import * as mock from '@std/testing/mock';
 
-import { Readable } from 'node:stream';
+import { make_lines } from '../utils.ts';
 
 import {
 
@@ -17,7 +17,7 @@ describe('main', function () {
 
     it('collect lodash and nolyfill with extra ignore', async function () {
 
-        const input = Readable.from(`
+        const lines = make_lines(`
   "version": "1.2.3",
   "lockfileVersion": 2,
     "node_modules/@babel/core/node_modules/convert-source-map": {
@@ -28,7 +28,7 @@ describe('main', function () {
     "node_modules/lodash.merge": {
     "node_modules/buffer": {
       "version": "6.0.3",
-    },
+    }
         `);
 
         const args = [
@@ -42,7 +42,7 @@ describe('main', function () {
 
         const quit = mock.spy(() => {});
 
-        await main({ args, input, print, quit });
+        await main({ args, lines, print, quit });
 
         Array.of(
             'lodash.memoize',

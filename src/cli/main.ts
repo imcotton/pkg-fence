@@ -52,21 +52,20 @@ export function parse (args: Iterable<string>): Flags {
 export async function main ({
 
         args = argv.slice(2),
-        input = stdin,
+        lines = createInterface(stdin),
         print = console.log,
         quit = exit,
 
 }: {
 
         args?: Iterable<string>,
-        input?: NodeJS.ReadableStream,
+        lines?: AsyncIterable<string>,
         print?: Fn<unknown, void>,
         quit?: Fn<number, void>,
 
 } = {}): Promise<void> {
 
     const flags = parse(args);
-    const lines = createInterface(input);
 
     let code = 0;
 
