@@ -22,7 +22,7 @@ jobs:
         run: deno check ./src/**/*.ts
 
       - name: Run publish --dry-run
-        run: deno publish --dry-run --allow-dirty
+        run: deno publish --dry-run
 
       - name: Run tests
         run: |-
