@@ -15,6 +15,28 @@ import {
 
 describe('main', function () {
 
+    it('exit by 0 with no matches', async function () {
+
+        const args = [ '--extra', 'wat' ];
+
+        const lines = make_lines(`
+            foo
+            bar
+        `);
+
+        const print = mock.spy(() => {});
+
+        const quit = mock.spy(() => {});
+
+        await main({ args, lines, print, quit });
+
+        mock.assertSpyCalls(print, 0);
+
+        mock.assertSpyCallArg(quit, 0, 0, 0);
+        mock.assertSpyCalls(quit, 1);
+
+    });
+
     it('collect lodash and nolyfill with extra ignore', async function () {
 
         const lines = make_lines(`
