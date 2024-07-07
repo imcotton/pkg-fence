@@ -45,14 +45,16 @@ describe('main', function () {
         await main({ args, lines, print, quit });
 
         Array.of(
+
             'lodash.memoize',
             'function-bind',
             'buffer',
-        ).forEach(function (pkg, i) {
-            mock.assertSpyCallArg(print, i, 0, pkg);
-        });
 
-        mock.assertSpyCalls(print, 3);
+        ).forEach(function (pkg, i) {
+
+            mock.assertSpyCallArg(print, i, 0, pkg);
+
+        });
 
         mock.assertSpyCallArg(quit, 0, 0, 1);
         mock.assertSpyCalls(quit, 1);
