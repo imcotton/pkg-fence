@@ -8,13 +8,13 @@ import { filter, lookup, split_by_comma } from './common.ts';
 
 export interface Flags {
 
-    readonly extra?: ReadonlyArray<string>;
+    extra?: ReadonlyArray<string>;
 
-    readonly ignore?: ReadonlyArray<string>;
+    ignore?: ReadonlyArray<string>;
 
-    readonly lodash?: boolean;
+    lodash?: boolean;
 
-    readonly nolyfill?: boolean;
+    nolyfill?: boolean;
 
 }
 
