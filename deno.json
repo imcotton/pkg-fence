@@ -15,6 +15,9 @@
     "./main": "./src/cli/main.ts",
     ".": "./src/cli/bin.ts"
   },
+  "tasks": {
+    "build-npm": "./tools/build-npm.ts"
+  },
   "compilerOptions": {
     "strict": true,
     "noImplicitAny": true,
