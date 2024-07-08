@@ -2,7 +2,7 @@
   "name": "pkg-fence",
   "version": "0.0.0-VERSION",
   "description": "tbd",
-  "license": "AGPL-3.0-or-later",
+  "license": "AGPL-3.0-only",
   "repository": {
     "url": "https://github.com/imcotton/pkg-fence.git",
     "type": "git"

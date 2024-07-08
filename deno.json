@@ -3,7 +3,7 @@
   "name": "@imcotton/pkg-fence",
   "version": "0.2.3",
   "description": "tbd",
-  "license": "AGPL-3.0-or-later",
+  "license": "AGPL-3.0-only",
   "imports": {
     "@std/testing": "jsr:@std/testing@^0.225.3",
     "@std/assert": "jsr:@std/assert@^0.226.0"
