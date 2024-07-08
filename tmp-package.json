@@ -1,0 +1,25 @@
+{
+  "name": "pkg-fence",
+  "version": "0.0.0-VERSION",
+  "description": "tbd",
+  "license": "AGPL-3.0-or-later",
+  "repository": {
+    "url": "https://github.com/imcotton/pkg-fence.git",
+    "type": "git"
+  },
+  "bin": "./dist/cli/bin.js",
+  "exports": {
+    "./main": "./dist/cli/main.js"
+  },
+  "files": [
+    "./dist/cli/bin.js",
+    "./dist/cli/main.js",
+    "./LICENSE.txt",
+    "./README.md"
+  ],
+  "type": "module",
+  "sideEffects": false,
+  "engines": {
+    "node": ">=18"
+  }
+}
