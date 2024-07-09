@@ -61,7 +61,8 @@ export async function main ({
 
         args?: Iterable<string>,
         lines?: AsyncIterable<string>,
-        print?: Fn<unknown, void>,
+        // deno-lint-ignore no-explicit-any
+        print?: Fn<any, void>,
         quit?: Fn<number, void>,
 
 } = {}): Promise<void> {
