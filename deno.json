@@ -16,7 +16,7 @@
     ".": "./src/cli/bin.ts"
   },
   "tasks": {
-    "build-npm": "./tools/build-npm.ts"
+    "build-npm": "mkdir -p dist/cli && ./tools/build-npm.ts"
   },
   "compilerOptions": {
     "strict": true,
