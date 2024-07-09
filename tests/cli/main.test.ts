@@ -1,4 +1,5 @@
 import { describe, it } from '@std/testing/bdd';
+import * as asserts from '@std/assert';
 import * as mock from '@std/testing/mock';
 
 import { make_lines } from '../utils.ts';
@@ -14,6 +15,29 @@ import {
 
 
 describe('main', function () {
+
+    for (const cmd of [ null, '-h', '--help' ]) {
+
+        it(`print help message on ${ cmd }`, async function () {
+
+            const args = cmd == null ? [] : [ cmd ];
+
+            const print = mock.spy(function (help: string) {
+                asserts.assertMatch(help, /Reading the NPM lockfile/);
+            });
+
+            const quit = mock.spy(() => {});
+
+            await main({ args, print, quit });
+
+            mock.assertSpyCalls(print, 1);
+
+            mock.assertSpyCallArg(quit, 0, 0, 0);
+            mock.assertSpyCalls(quit, 1);
+
+        });
+
+    }
 
     it('exit by 0 with no matches', async function () {
 
