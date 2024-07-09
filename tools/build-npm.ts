@@ -2,8 +2,6 @@
 
 import * as esbuild from 'https://deno.land/x/esbuild@v0.23.0/mod.js';
 
-import * as fs from 'jsr:@std/fs@~0.229.3';
-
 import pkg from '../deno.json' with { type: 'json' };
 
 
@@ -25,8 +23,6 @@ import pkg from '../deno.json' with { type: 'json' };
 
 
 const outdir = './dist/cli';
-
-await fs.ensureDir(outdir);
 
 
 
