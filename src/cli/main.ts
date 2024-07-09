@@ -53,6 +53,7 @@ export function parse (args: Iterable<string>): Flags {
 export async function main ({
 
         args = argv.slice(2),
+        input = stdin,
         lines: optional_lines,
         print = console.log,
         quit = exit,
@@ -60,6 +61,7 @@ export async function main ({
 }: {
 
         args?: Iterable<string>,
+        input?: NodeJS.ReadableStream,
         lines?: AsyncIterable<string>,
         // deno-lint-ignore no-explicit-any
         print?: Fn<any, void>,
@@ -79,7 +81,7 @@ export async function main ({
     }
 
     const flags = parse(args);
-    const lines = optional_lines ?? createInterface({ input: stdin });
+    const lines = optional_lines ?? createInterface({ input });
 
     let code = 0;
 

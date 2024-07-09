@@ -2,6 +2,8 @@ import { describe, it } from '@std/testing/bdd';
 import * as asserts from '@std/assert';
 import * as mock from '@std/testing/mock';
 
+import { Readable } from 'node:stream';
+
 import { make_lines } from '../utils.ts';
 
 import {
@@ -38,6 +40,32 @@ describe('main', function () {
         });
 
     }
+
+    it('ok in optional lines with input of ReadableStream', async function () {
+
+        const args = [ '--extra', 'acorn-jsx' ];
+
+        const input = Readable.from(`
+  "version": "1.2.3",
+  "lockfileVersion": 2,
+    "node_modules/lodash.memoize": {
+    "node_modules/acorn-jsx": {
+    "node_modules/side-channel": {
+        `);
+
+        const print = mock.spy(() => {});
+
+        const quit = mock.spy(() => {});
+
+        await main({ args, input, print, quit });
+
+        mock.assertSpyCallArg(print, 0, 0, 'acorn-jsx');
+        mock.assertSpyCalls(print, 1);
+
+        mock.assertSpyCallArg(quit, 0, 0, 1);
+        mock.assertSpyCalls(quit, 1);
+
+    });
 
     it('exit by 0 with no matches', async function () {
 
