@@ -137,3 +137,26 @@ export function filter <T> (
 
 }
 
+
+
+
+
+export function make_predicate <T> ({ extra, ignore, presets }: {
+
+        extra?: Predicate<T> | undefined,
+        ignore?: Predicate<T> | undefined,
+        presets?: Iterable<Predicate<T>> | undefined,
+
+}): Predicate<T> {
+
+    const not_ignored = not(ignore ?? always_false);
+    const with_extra = extra ?? always_false;
+    const arr = Array.from(presets ?? []);
+
+    return and(
+        not_ignored,
+        any(arr, with_extra),
+    );
+
+}
+

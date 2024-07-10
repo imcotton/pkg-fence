@@ -2,12 +2,11 @@ import { describe, it } from '@std/testing/bdd';
 
 import { assert_false, assert__true } from '../utils.ts';
 
-import { lookup } from '../../src/common.ts';
+import { lookup, make_predicate } from '../../src/common.ts';
 
 import {
 
     gen_presets,
-    make_predicate,
 
 } from '../../src/presets/index.ts';
 

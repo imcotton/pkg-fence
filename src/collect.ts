@@ -1,6 +1,6 @@
 import { make_scanner } from './scanner/index.ts';
-import { gen_presets, make_predicate } from './presets/index.ts';
-import { filter, lookup, split_by_comma } from './common.ts';
+import { gen_presets } from './presets/index.ts';
+import { filter, lookup, split_by_comma, make_predicate } from './common.ts';
 
 
 
