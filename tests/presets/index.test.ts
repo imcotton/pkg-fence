@@ -6,6 +6,7 @@ import { lookup } from '../../src/common.ts';
 
 import {
 
+    gen_presets,
     make_predicate,
 
 } from '../../src/presets/index.ts';
@@ -34,7 +35,9 @@ describe('presets', function () {
 
         it(`has ${ isarray } on nolyfill`, function () {
 
-            const check = make_predicate({ nolyfill });
+            const presets = gen_presets({ nolyfill });
+
+            const check = make_predicate({ presets });
 
             assert__true(check(abab), abab);
             assert__true(check(isarray), isarray);
@@ -43,9 +46,11 @@ describe('presets', function () {
 
         it(`has NO ${ isarray } on nolyfill with ignore`, function () {
 
+            const presets = gen_presets({ nolyfill });
+
             const ignore = lookup([ isarray ]);
 
-            const check = make_predicate({ nolyfill, ignore });
+            const check = make_predicate({ presets, ignore });
 
             assert_false(check(__w__a__t__), __w__a__t__);
             assert_false(check(isarray), isarray);
@@ -58,7 +63,9 @@ describe('presets', function () {
 
         it(`has ${ lodash_merge } on lodash`, function () {
 
-            const check = make_predicate({ lodash });
+            const presets = gen_presets({ lodash });
+
+            const check = make_predicate({ presets });
 
             assert__true(check('lodash'), 'lodash');
             assert__true(check(lodash_merge), lodash_merge);
@@ -67,7 +74,9 @@ describe('presets', function () {
 
         it(`has NO ${ lodash_merge } on nolyfill`, function () {
 
-            const check = make_predicate({ nolyfill });
+            const presets = gen_presets({ nolyfill });
+
+            const check = make_predicate({ presets });
 
             assert_false(check(lodash_merge), lodash_merge);
 

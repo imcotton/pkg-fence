@@ -1,5 +1,5 @@
 import { make_scanner } from './scanner/index.ts';
-import { make_predicate } from './presets/index.ts';
+import { gen_presets, make_predicate } from './presets/index.ts';
 import { filter, lookup, split_by_comma } from './common.ts';
 
 
@@ -34,7 +34,7 @@ export function collect ({ flags, lines }: {
     const pred = make_predicate({
         extra: lookup(extra.flatMap(split_by_comma)),
         ignore: lookup(ignore.flatMap(split_by_comma)),
-        ...rest,
+        presets: gen_presets(rest),
     });
 
     //    result = filter pred $ make_scanner 'npm' $ lines
