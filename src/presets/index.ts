@@ -32,20 +32,21 @@ export function * gen_presets (param: Partial<Readonly<Record<
 
 
 
-export function make_predicate ({ extra, ignore, ...rest }: {
+export function make_predicate <T> ({ extra, ignore, presets }: {
 
-        extra?: Predicate<string> | undefined,
-        ignore?: Predicate<string> | undefined,
+        extra?: Predicate<T> | undefined,
+        ignore?: Predicate<T> | undefined,
+        presets?: Iterable<Predicate<T>> | undefined,
 
-} & Parameters<typeof gen_presets>[0]): Predicate<string> {
+}): Predicate<T> {
 
     const not_ignored = not(ignore ?? always_false);
     const with_extra = extra ?? always_false;
-    const presets = Array.from(gen_presets(rest));
+    const arr = Array.from(presets ?? []);
 
     return and(
         not_ignored,
-        any(presets, with_extra),
+        any(arr, with_extra),
     );
 
 }
