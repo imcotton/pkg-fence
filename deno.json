@@ -2,7 +2,7 @@
   "$schema": "https://deno.land/x/deno/cli/schemas/config-file.v1.json",
   "name": "@imcotton/pkg-fence",
   "version": "0.3.1",
-  "description": "tbd",
+  "description": "A command line tool that glance over package lockfile.",
   "license": "AGPL-3.0-only",
   "imports": {
     "@std/testing": "jsr:@std/testing@^0.225.3",

@@ -1,7 +1,7 @@
 {
   "name": "pkg-fence",
   "version": "0.0.0-VERSION",
-  "description": "tbd",
+  "description": "A command line tool that glance over package lockfile.",
   "license": "AGPL-3.0-only",
   "repository": {
     "url": "https://github.com/imcotton/pkg-fence.git",
