@@ -81,11 +81,11 @@ deno run jsr:@imcotton/pkg-fence
 Caveat
 ------
 
-### does not differentiate between dev or non-dev dependencies
+Does not differentiate between dev or non-dev dependencies.
 
 - use `npm ls ...` or `npm why ...` to make further inspection
 
-### results are unordered, possible in duplications
+Results are unordered, possible in duplications.
 
 - use `sort`, `uniq`, or `grep` etc...
 
