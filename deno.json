@@ -5,6 +5,7 @@
   "description": "A command line tool that glance over package lockfile.",
   "license": "AGPL-3.0-only",
   "imports": {
+    "@nolyfill/": "https://esm.sh/gh/SukkaW/nolyfill@1.0.34/",
     "@std/testing": "jsr:@std/testing@^0.225.3",
     "@std/assert": "jsr:@std/assert@^1.0.0"
   },
@@ -16,6 +17,7 @@
     ".": "./src/cli/bin.ts"
   },
   "tasks": {
+    "sync-nolyfill": "./tools/sync/nolyfill.ts",
     "build-npm": "mkdir -p dist/cli && ./tools/build-npm.ts"
   },
   "compilerOptions": {
