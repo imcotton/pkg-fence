@@ -1,4 +1,5 @@
 import { describe, it } from '@std/testing/bdd';
+import * as asserts from '@std/assert';
 
 import { assert_false, assert__true } from '../utils.ts';
 
@@ -7,6 +8,7 @@ import { lookup, make_predicate } from '../../src/common.ts';
 import {
 
     gen_presets,
+    relief,
 
 } from '../../src/presets/index.ts';
 
@@ -15,6 +17,44 @@ import {
 
 
 describe('presets', function () {
+
+    describe('gen_presets', function () {
+
+        it(`gens all reliefs`, function () {
+
+            const all = Array.of(
+                relief.native_check,
+                relief.micro_check,
+                relief.preferred_check,
+            );
+
+            const presets = Array.from(gen_presets({ relief: true }));
+
+            asserts.assertEquals(presets, all);
+
+        });
+
+        const sample = [
+
+            [    'native', relief.native_check ],
+            [     'micro', relief.micro_check ],
+            [ 'preferred', relief.preferred_check ],
+
+        ] as const;
+
+        for (const [ name, check ] of sample) {
+
+            it(`gens relief-${ name } only`, function () {
+
+                const presets = gen_presets({ [ `relief-${ name }` ]: true });
+
+                asserts.assertEquals(Array.from(presets), Array.of(check));
+
+            });
+
+        }
+
+    });
 
     describe('make_predicate', function () {
 
