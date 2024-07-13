@@ -1,3 +1,9 @@
+import type { Fn } from '../../src/common.ts';
+
+
+
+
+
 export function alter (
 
         open: string,
@@ -21,6 +27,13 @@ export function alter (
     };
 
 }
+
+
+
+
+
+export const replace_all: Fn<RegExp, Fn<string, Fn<string, string>>>
+= order => newer => origin => origin.replaceAll(order, newer);
 
 
 
