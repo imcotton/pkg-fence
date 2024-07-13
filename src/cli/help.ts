@@ -19,7 +19,7 @@ Builtin Presets:
 
     --lodash
 
-    --nolyfill
+    --nolyfill                    (via SukkaW/nolyfill)
 
     --relief                      (via es-tooling/module-replacements)
         --relief-native
