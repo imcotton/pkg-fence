@@ -16,6 +16,11 @@ export interface Flags {
 
     nolyfill?: boolean;
 
+    'relief'?: boolean;
+    'relief-native'?: boolean;
+    'relief-micro'?: boolean;
+    'relief-preferred'?: boolean;
+
 }
 
 
