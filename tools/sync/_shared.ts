@@ -35,6 +35,8 @@ export function alter (
 export const replace_all: Fn<RegExp, Fn<string, Fn<string, string>>>
 = order => newer => origin => origin.replaceAll(order, newer);
 
+export const update_blobs = replace_all(/(?<=\/blob\/)[^/]+/g);
+
 
 
 
