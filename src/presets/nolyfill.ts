@@ -4,7 +4,7 @@ import { lookup, type Predicate } from '../common.ts';
 
 
 
-// https://github.com/SukkaW/nolyfill/blob/master/packages/tools/cli/src/all-packages.ts
+// https://github.com/SukkaW/nolyfill/blob/1.0.34/packages/tools/cli/src/all-packages.ts
 
 export const list: ReadonlyArray<string> = Array.of(
 
