@@ -1,10 +1,10 @@
-export function alter ({ open, data, close }: {
+export function alter (
 
         open: string,
-        data: unknown,
+        data: object,
         close: string,
 
-}) {
+) {
 
     return function (total: string): string {
 
@@ -45,20 +45,13 @@ function split ({ open, close, total }: {
 
 
 
-const index: (_: string, __: string) => number
-= (x, xs) => xs.indexOf(x) + x.length;
-
-
-
-
-
 const begin: (_: string) => (_: string) => string
-= x => xs => xs.slice(0, index(x, xs));
+= x => xs => xs.slice(0, xs.indexOf(x) + x.length);
 
 
 
 
 
 const end: (_: string) => (_: string) => string
-= x => xs => xs.slice(index(x, xs) - x.length);
+= x => xs => xs.slice(xs.indexOf(x));
 

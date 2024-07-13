@@ -18,23 +18,23 @@ async function main ({
 
     const renew = await Deno.readTextFile(path)
 
-        .then(alter({
-            open: 'Array.of( // -native',
-            data:           view(native),
-            close:       '); // -native',
-        }))
+        .then(alter(
+            'Array.of( // -native',
+                      view(native),
+                   '); // -native',
+        ))
 
-        .then(alter({
-            open: 'Array.of( // -micro',
-            data:           view(micro),
-            close:       '); // -micro',
-        }))
+        .then(alter(
+            'Array.of( // -micro',
+                      view(micro),
+                   '); // -micro',
+        ))
 
-        .then(alter({
-            open: 'Array.of( // -preferred',
-            data:           view(preferred),
-            close:       '); // -preferred',
-        }))
+        .then(alter(
+            'Array.of( // -preferred',
+                      view(preferred),
+                   '); // -preferred',
+        ))
 
     ;
 
