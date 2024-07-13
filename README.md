@@ -19,8 +19,9 @@ The lockfile is reading from `stdin` only. i.e.
 
     cat package-lock.json | npx pkg-fence <...>
 
-Currently only support `package-lock.json` or `npm-shrinkwrap.json` 
-(could use `npm shrinkwrap` to generate it on-the-fly).
+> [!NOTE]
+> Currently only support `package-lock.json` or `npm-shrinkwrap.json` 
+> (could use `npm shrinkwrap` to generate it on-the-fly).
 
 Exit code: `0` for empty results, `1` for anything matched.
 
