@@ -33,6 +33,10 @@ Exit code: `0` for empty results, `1` for anything matched.
 
 - `--lodash`: pkg naming starts by `lodash.` or equals to `lodash`
 - `--nolyfill`: list of names from https://github.com/SukkaW/nolyfill
+- `--relief`: list of names from https://github.com/es-tooling/module-replacements
+  - `--relief-native`
+  - `--relief-micro`
+  - `--relief-preferred`
 
 
 
