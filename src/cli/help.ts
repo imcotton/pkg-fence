@@ -21,6 +21,11 @@ Builtin Presets:
 
     --nolyfill
 
+    --relief                      (via es-tooling/module-replacements)
+        --relief-native
+        --relief-micro
+        --relief-preferred
+
 
 
 Options:

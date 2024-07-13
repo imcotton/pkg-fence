@@ -38,6 +38,11 @@ export function parse (args: Iterable<string>): Flags {
                 type: 'boolean',
             },
 
+            'relief':           { type: 'boolean' },
+            'relief-native':    { type: 'boolean' },
+            'relief-micro':     { type: 'boolean' },
+            'relief-preferred': { type: 'boolean' },
+
         },
 
     });
