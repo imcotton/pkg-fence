@@ -14,11 +14,15 @@ async function main ({
 
 } = {}) {
 
-    const renew = await Deno.readTextFile(path).then(alter(
-        'Array.of(',
-        allPackages,
-        ');',
-    ));
+    const renew = await Deno.readTextFile(path)
+
+        .then(alter(
+            'Array.of(',
+                allPackages,
+            ');',
+        ))
+
+    ;
 
     await Deno.writeTextFile(path, renew, { create: false });
 
