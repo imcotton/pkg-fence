@@ -1,10 +1,16 @@
-export function alter ({ open, data, close }: {
+import type { Fn } from '../../src/common.ts';
+
+
+
+
+
+export function alter (
 
         open: string,
-        data: unknown,
+        data: object,
         close: string,
 
-}) {
+) {
 
     return function (total: string): string {
 
@@ -21,6 +27,15 @@ export function alter ({ open, data, close }: {
     };
 
 }
+
+
+
+
+
+export const replace_all: Fn<RegExp, Fn<string, Fn<string, string>>>
+= order => newer => origin => origin.replaceAll(order, newer);
+
+export const update_blobs = replace_all(/(?<=\/blob\/)[^/]+/g);
 
 
 
@@ -45,20 +60,13 @@ function split ({ open, close, total }: {
 
 
 
-const index: (_: string, __: string) => number
-= (x, xs) => xs.indexOf(x) + x.length;
-
-
-
-
-
 const begin: (_: string) => (_: string) => string
-= x => xs => xs.slice(0, index(x, xs));
+= x => xs => xs.slice(0, xs.indexOf(x) + x.length);
 
 
 
 
 
 const end: (_: string) => (_: string) => string
-= x => xs => xs.slice(index(x, xs) - x.length);
+= x => xs => xs.slice(xs.indexOf(x));
 

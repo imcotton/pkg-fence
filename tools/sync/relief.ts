@@ -4,7 +4,7 @@ import    native from '@est-mod-rep/manifests/native.json'          with { type:
 import     micro from '@est-mod-rep/manifests/micro-utilities.json' with { type: 'json' };
 import preferred from '@est-mod-rep/manifests/preferred.json'       with { type: 'json' };
 
-import { alter } from './_shared.ts';
+import { alter, update_blobs } from './_shared.ts';
 
 
 
@@ -13,28 +13,31 @@ import { alter } from './_shared.ts';
 async function main ({
 
         path = './src/presets/relief.ts',
+        version = '2.1.0',
 
 } = {}) {
 
     const renew = await Deno.readTextFile(path)
 
-        .then(alter({
-            open: 'Array.of( // -native',
-            data:           view(native),
-            close:       '); // -native',
-        }))
+        .then(update_blobs(version))
 
-        .then(alter({
-            open: 'Array.of( // -micro',
-            data:           view(micro),
-            close:       '); // -micro',
-        }))
+        .then(alter(
+            'Array.of( // -native',
+                      view(native),
+                   '); // -native',
+        ))
 
-        .then(alter({
-            open: 'Array.of( // -preferred',
-            data:           view(preferred),
-            close:       '); // -preferred',
-        }))
+        .then(alter(
+            'Array.of( // -micro',
+                      view(micro),
+                   '); // -micro',
+        ))
+
+        .then(alter(
+            'Array.of( // -preferred',
+                      view(preferred),
+                   '); // -preferred',
+        ))
 
     ;
 

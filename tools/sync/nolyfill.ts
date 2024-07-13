@@ -2,7 +2,7 @@
 
 import { allPackages } from '@nolyfill/packages/tools/cli/src/all-packages.ts';
 
-import { alter } from './_shared.ts';
+import { alter, update_blobs } from './_shared.ts';
 
 
 
@@ -11,14 +11,21 @@ import { alter } from './_shared.ts';
 async function main ({
 
         path = './src/presets/nolyfill.ts',
+        version = '1.0.34',
 
 } = {}) {
 
-    const renew = await Deno.readTextFile(path).then(alter({
-        open: 'Array.of(',
-        data: allPackages,
-        close: ');',
-    }));
+    const renew = await Deno.readTextFile(path)
+
+        .then(update_blobs(version))
+
+        .then(alter(
+            'Array.of(',
+                allPackages,
+            ');',
+        ))
+
+    ;
 
     await Deno.writeTextFile(path, renew, { create: false });
 
