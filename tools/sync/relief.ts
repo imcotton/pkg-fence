@@ -23,19 +23,19 @@ async function main ({
 
         .then(alter(
             'Array.of( // -native',
-                      view(native),
+               moduleNames(native),
                    '); // -native',
         ))
 
         .then(alter(
             'Array.of( // -micro',
-                      view(micro),
+               moduleNames(micro),
                    '); // -micro',
         ))
 
         .then(alter(
             'Array.of( // -preferred',
-                      view(preferred),
+               moduleNames(preferred),
                    '); // -preferred',
         ))
 
@@ -49,15 +49,26 @@ async function main ({
 
 
 
-function view (mod:
+const moduleNames = lens('moduleReplacements', 'moduleName');
 
-        | typeof native
-        | typeof micro
-        | typeof preferred
+type Manifests =
+    | typeof native
+    | typeof micro
+    | typeof preferred
+;
+
+function lens (
+
+        fst: keyof Manifests,
+        snd: keyof Manifests[typeof fst][number],
 
 ) {
 
-    return mod.moduleReplacements.map(m => m.moduleName);
+    return function (mod: Manifests) {
+
+        return mod[fst].map(m => m[snd]);
+
+    };
 
 }
 
