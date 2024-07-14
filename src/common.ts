@@ -10,6 +10,12 @@ export type Predicate <T> = Fn<T, boolean>;
 
 
 
+export const id = <T> (a: T) => a;
+
+
+
+
+
 export const always_true = () => true;
 
 
