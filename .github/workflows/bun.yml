@@ -1,0 +1,40 @@
+name: Publish NPM
+
+on: push
+
+jobs:
+
+  publish:
+
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+
+    permissions:
+      contents: read
+      id-token: write
+
+    steps:
+
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Build the pkg
+        run: |-
+
+          VER=$(jq -r '.version' deno.json)
+
+          bun build ./src/cli/main.ts --outfile=./dist/cli/main.js --target=node --format=esm
+          cat ./src/cli/bin.ts | sed 's/main.ts/main.js/' > ./dist/cli/bin.js
+          cat ./tmp-package.json | sed "s/0.0.0-VERSION/$VER/" > package.json
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: v20
+          registry-url: https://registry.npmjs.org/
+
+      - name: Publish to npm
+        run: npm publish --dry-run
+
