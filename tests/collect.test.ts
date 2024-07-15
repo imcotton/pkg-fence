@@ -51,6 +51,8 @@ describe('collect', function () {
 
         const res = await Array.fromAsync(collect({ lines, flags: {
 
+            format: 'npm',
+
             lodash: true,
 
             nolyfill: true,
