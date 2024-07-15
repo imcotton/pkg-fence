@@ -13,6 +13,35 @@ import {
 
 describe('collect', function () {
 
+    it('collect under optional format (id)', async function () {
+
+        const lines = ReadableStream.from([
+            'convert-source-map',
+            'lodash.memoize',
+            'function-bind',
+            'buffer',
+        ]);
+
+        const res = await Array.fromAsync(collect({ lines, flags: {
+
+            lodash: true,
+
+            nolyfill: true,
+
+            ignore: [ 'lodash.merge', 'side-channel' ],
+
+            extra: [ 'buffer' ],
+
+        } }));
+
+        asserts.assertEquals(res, [
+            'lodash.memoize',
+            'function-bind',
+            'buffer',
+        ]);
+
+    });
+
     it('collect lodash and nolyfill with extra ignore', async function () {
 
         const lines = ReadableStream.from(`
