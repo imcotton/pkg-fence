@@ -1,7 +1,7 @@
 import { transform as npm } from './npm.ts';
 export {              npm };
 
-import type { Fn } from '../common.ts';
+import { type Fn, id } from '../common.ts';
 
 
 
@@ -9,9 +9,13 @@ import type { Fn } from '../common.ts';
 
 export function make_scanner (
 
-        format: 'npm',
+        format?: 'npm',
 
 ): Fn<AsyncIterable<string>, AsyncIterable<string>> {
+
+    if (format == null) {
+        return id;
+    }
 
     if (format === 'npm') {
         return npm;

@@ -19,6 +19,17 @@ describe('scanner', function () {
 
     });
 
+    it('makes id scanner by default', function () {
+
+        const scanner = make_scanner();
+
+        const mine = ReadableStream.from(`foobar`);
+        const copy = scanner(mine);
+
+        asserts.assertStrictEquals(copy, mine);
+
+    });
+
     describe('npm', function () {
 
         const scanner = make_scanner('npm');
