@@ -8,6 +8,8 @@ import { filter, lookup, split_by_comma, make_predicate } from './common.ts';
 
 export interface Flags {
 
+    format?: 'npm';
+
     extra?: ReadonlyArray<string>;
 
     ignore?: ReadonlyArray<string>;
@@ -34,7 +36,7 @@ export function collect ({ flags, lines }: {
 
 }): AsyncIterable<string> {
 
-    const { extra = [], ignore = [], ...rest } = flags;
+    const { format, extra = [], ignore = [], ...rest } = flags;
 
     const pred = make_predicate({
         extra: lookup(extra.flatMap(split_by_comma)),
@@ -42,10 +44,10 @@ export function collect ({ flags, lines }: {
         presets: gen_presets(rest),
     });
 
-    //    result = filter pred $ make_scanner 'npm' $ lines
+    //    result = filter pred $ make_scanner format $ lines
     const result =                              (
         filter(pred)                            (
-        make_scanner('npm')                     (
+        make_scanner(format)                    (
         lines
     )));
 
