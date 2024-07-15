@@ -22,6 +22,10 @@ export function parse (args: Iterable<string>): Flags {
                 type: 'boolean',
             },
 
+            format: {
+                type: 'string',
+            },
+
             extra: {
                 type: 'string',
                 multiple: true,
@@ -51,9 +55,23 @@ export function parse (args: Iterable<string>): Flags {
 
     });
 
-    const format = values['no-npm'] === true ? void 0 : 'npm';
+    const { format = 'npm', 'no-npm': no_npm, ...rest } = values;
 
-    return { ...values, format };
+    formatting: if (format === 'npm') {
+
+        if (format === 'npm' && no_npm === true) {
+            break formatting;
+        }
+
+        return { ...rest, format };
+
+    } else {
+
+        throw new Error(`unknown format - ${ format }`);
+
+    }
+
+    return rest;
 
 }
 
