@@ -18,6 +18,10 @@ export function parse (args: Iterable<string>): Flags {
 
         options: {
 
+            'no-npm': {
+                type: 'boolean',
+            },
+
             extra: {
                 type: 'string',
                 multiple: true,
@@ -47,7 +51,9 @@ export function parse (args: Iterable<string>): Flags {
 
     });
 
-    return values;
+    const format = values['no-npm'] === true ? void 0 : 'npm';
+
+    return { ...values, format };
 
 }
 

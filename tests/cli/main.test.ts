@@ -41,6 +41,30 @@ describe('main', function () {
 
     }
 
+    it('works under --no-npm mode, a.k.a the id scanner', async function () {
+
+        const args = [ '--extra', 'acorn-jsx', '--no-npm' ];
+
+        const lines = ReadableStream.from([
+            'lodash.memoize',
+            'acorn-jsx',
+            'side-channel',
+        ]);
+
+        const print = mock.spy(() => {});
+
+        const quit = mock.spy(() => {});
+
+        await main({ args, lines, print, quit });
+
+        mock.assertSpyCallArg(print, 0, 0, 'acorn-jsx');
+        mock.assertSpyCalls(print, 1);
+
+        mock.assertSpyCallArg(quit, 0, 0, 1);
+        mock.assertSpyCalls(quit, 1);
+
+    });
+
     it('ok in optional lines with input of ReadableStream', async function () {
 
         const args = [ '--extra', 'acorn-jsx' ];
