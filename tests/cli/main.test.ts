@@ -8,9 +8,57 @@ import { make_lines } from '../utils.ts';
 
 import {
 
+    parse,
     main,
 
 } from '../../src/cli/main.ts';
+
+
+
+
+
+describe('parse', function () {
+
+    it('default format to npm', function () {
+
+        asserts.assert(
+            'npm' === parse([ '--ignore', 'foobar' ]).format
+        );
+
+    });
+
+    it('has format to npm by --format=npm', function () {
+
+        asserts.assert(
+            'npm' === parse([ '--format=npm' ]).format
+        );
+
+        asserts.assert(
+            'npm' === parse([ '--format', 'npm' ]).format
+        );
+
+    });
+
+    it('has no format by --no-npm', function () {
+
+        asserts.assert(
+            null == parse([ '--no-npm' ]).format
+        );
+
+        asserts.assert(
+            null == parse([ '--no-npm', '--format=npm' ]).format
+        );
+
+    });
+
+    it('throws on unknown format', function () {
+
+        asserts.assertThrows(() => parse([ '--format', 'wat' ]));
+        asserts.assertThrows(() => parse([ '--format', 'foobar' ]));
+
+    });
+
+});
 
 
 
