@@ -96,6 +96,7 @@ npm:/yargs@17.7.2 (285.57KB)
 ├── npm:/get-caller-file@2.0.5 (4.61KB)
 ├── npm:/require-directory@2.1.1 (11.79KB)
 ├── npm:/string-width@4.2.3 (5.04KB) *
+├── npm:/string-width@4.2.3 (5.04KB) [*
 ├── npm:/y18n@5.0.8 (22.89KB)
 └── npm:/yargs-parser@21.1.1 (125.46KB)
         `);
