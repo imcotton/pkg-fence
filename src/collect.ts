@@ -8,7 +8,7 @@ import { filter, lookup, split_by_comma, make_predicate } from './common.ts';
 
 export interface Flags {
 
-    format?: 'npm';
+    format?: 'npm' | 'deno-info';
 
     extra?: ReadonlyArray<string>;
 
