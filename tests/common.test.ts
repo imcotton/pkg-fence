@@ -12,6 +12,7 @@ import {
     filter,
     always_true,
     always_false,
+    starts_with,
 
 } from '../src/common.ts';
 
@@ -26,6 +27,19 @@ const eq = asserts.assertEquals;
 
 
 describe('common', function () {
+
+    describe('starts_with', function () {
+
+        it('curried startsWith', function () {
+
+            const starts_with_foo = starts_with('foo');
+
+            asserts.assert(starts_with_foo('foobar'));
+            asserts.assertFalse(starts_with_foo('hello'));
+
+        });
+
+    });
 
     describe('filter', function () {
 
