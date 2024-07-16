@@ -60,6 +60,16 @@ export function ends_with (s: string): Predicate<string> {
 
 
 
+export function eqeqeq <T> (b: T): Predicate<T> {
+
+    return a => a === b;
+
+}
+
+
+
+
+
 export const split_by_comma: Fn<string, ReadonlyArray<string>>
 = split_by(',');
 

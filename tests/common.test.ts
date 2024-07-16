@@ -14,6 +14,7 @@ import {
     always_false,
     starts_with,
     ends_with,
+    eqeqeq,
 
 } from '../src/common.ts';
 
@@ -28,6 +29,20 @@ const eq = asserts.assertEquals;
 
 
 describe('common', function () {
+
+    describe('eqeqeq', function () {
+
+        it('curried strict equals', function () {
+
+            const eq_123 = eqeqeq('123');
+
+            asserts.assert(eq_123('123'));
+            asserts.assertFalse(eq_123('456'));
+            asserts.assertFalse(eq_123(123 as never));
+
+        });
+
+    });
 
     describe('ends_with', function () {
 
