@@ -13,6 +13,7 @@ import {
     always_true,
     always_false,
     starts_with,
+    ends_with,
 
 } from '../src/common.ts';
 
@@ -27,6 +28,19 @@ const eq = asserts.assertEquals;
 
 
 describe('common', function () {
+
+    describe('ends_with', function () {
+
+        it('curried endsWith', function () {
+
+            const ends_with_bar = ends_with('bar');
+
+            asserts.assert(ends_with_bar('foobar'));
+            asserts.assertFalse(ends_with_bar('hello'));
+
+        });
+
+    });
 
     describe('starts_with', function () {
 

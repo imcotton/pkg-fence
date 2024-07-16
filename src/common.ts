@@ -50,6 +50,16 @@ export function starts_with (s: string): Predicate<string> {
 
 
 
+export function ends_with (s: string): Predicate<string> {
+
+    return str => str.endsWith(s);
+
+}
+
+
+
+
+
 export const split_by_comma: Fn<string, ReadonlyArray<string>>
 = split_by(',');
 
