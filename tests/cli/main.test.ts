@@ -19,6 +19,14 @@ import {
 
 describe('parse', function () {
 
+    it('supports --format deno-info', function () {
+
+        asserts.assert(
+            'deno-info' === parse([ '--format', 'deno-info' ]).format
+        );
+
+    });
+
     it('default format to npm', function () {
 
         asserts.assert(
