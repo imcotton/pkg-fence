@@ -14,6 +14,12 @@
 
     i.e. plain input other than `package-lock.json`, one name per line.
 
+- CLI to support `--format=deno-info` ([#29](https://github.com/imcotton/pkg-fence/pull/29))
+
+    ```
+    deno info npm:traverse@0.6.9 | npx pkg-fence --format=deno-info --nolyfill
+    ```
+
 
 
 
