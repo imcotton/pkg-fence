@@ -14,6 +14,7 @@ import {
     always_false,
     starts_with,
     ends_with,
+    includes_with,
     eqeqeq,
 
 } from '../src/common.ts';
@@ -29,6 +30,19 @@ const eq = asserts.assertEquals;
 
 
 describe('common', function () {
+
+    describe('includes_with', function () {
+
+        it('curried includes_with', function () {
+
+            const comma_includes_in = includes_with(',');
+
+            asserts.assert(comma_includes_in('hello, world'));
+            asserts.assertFalse(comma_includes_in('foobar'));
+
+        });
+
+    });
 
     describe('eqeqeq', function () {
 

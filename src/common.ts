@@ -60,6 +60,16 @@ export function ends_with (s: string): Predicate<string> {
 
 
 
+export function includes_with (s: string): Predicate<string> {
+
+    return str => str.includes(s);
+
+}
+
+
+
+
+
 export function eqeqeq <T> (b: T): Predicate<T> {
 
     return a => a === b;
