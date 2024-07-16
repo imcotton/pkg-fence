@@ -33,13 +33,13 @@ jobs:
         run: deno task build-npm
 
       - name: Publish to npm (next)
-        if: {{ contains(github.ref_name, '-') }}
+        if: contains(github.ref_name, '-') == true
         run: npm publish --access=public --provenance --tag=next
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 
       - name: Publish to npm (latest)
-        if: {{ !contains(github.ref_name, '-') }}
+        if: contains(github.ref_name, '-') == false
         run: npm publish --access=public --provenance --tag=latest
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
