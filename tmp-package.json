@@ -15,6 +15,7 @@
     "./dist/cli/bin.js",
     "./dist/cli/main.js",
     "./LICENSE.txt",
+    "./CHANGELOG.md",
     "./README.md"
   ],
   "type": "module",

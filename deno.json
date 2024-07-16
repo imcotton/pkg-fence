@@ -44,6 +44,7 @@
     "include": [
       "./src",
       "./LICENSE.txt",
+      "./CHANGELOG.md",
       "./README.md",
       "./deno.json"
     ]
