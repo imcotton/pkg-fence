@@ -40,6 +40,16 @@ export function lookup <T> (sample: Iterable<T>): Predicate<T> {
 
 
 
+export function starts_with (s: string): Predicate<string> {
+
+    return str => str.startsWith(s);
+
+}
+
+
+
+
+
 export const split_by_comma: Fn<string, ReadonlyArray<string>>
 = split_by(',');
 
