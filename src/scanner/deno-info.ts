@@ -1,4 +1,4 @@
-import { filter, not, ends_with, and, includes_with } from '../common.ts';
+import { filter, not, includes_with, and } from '../common.ts';
 
 
 
@@ -7,11 +7,11 @@ import { filter, not, ends_with, and, includes_with } from '../common.ts';
 const prefix = ' npm:/';
 const prefix_len = prefix.length;
 
-const not_ends_with_star_AND_includes_with_prefix = and(
-      not(ends_with(' *')),  includes_with(prefix)
+const not_includes_with_star_AND_includes_with_prefix = and(
+      not(includes_with('*')),   includes_with(prefix)
 );
 
-const valid = filter(not_ends_with_star_AND_includes_with_prefix);
+const valid = filter(not_includes_with_star_AND_includes_with_prefix);
 
 
 
