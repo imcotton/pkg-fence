@@ -12,7 +12,7 @@
 
 - CLI to support `--no-npm` toggle ([#26](https://github.com/imcotton/pkg-fence/pull/26))
 
-    i.e. plain input other than `package-lock.json`, one name pre line.
+    i.e. plain input other than `package-lock.json`, one name per line.
 
 
 
