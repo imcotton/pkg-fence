@@ -85,9 +85,9 @@ describe('main', function () {
 
     }
 
-    it('works under --no-npm mode, a.k.a the id scanner', async function () {
+    it('works under auto mode by sniff till non format', async function () {
 
-        const args = [ '--extra', 'acorn-jsx', '--no-npm' ];
+        const args = [ '--extra', 'acorn-jsx' ];
 
         const lines = ReadableStream.from([
             'lodash.memoize',
