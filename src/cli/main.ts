@@ -5,6 +5,7 @@ import { argv, stdin, exit } from 'node:process';
 import type { Fn } from '../common.ts';
 import { collect, type Flags } from '../collect.ts';
 import { help_text } from './help.ts';
+import { sniff } from './sniff.ts';
 
 
 
@@ -17,10 +18,6 @@ export function parse (args: Iterable<string>): Flags {
         args: Array.from(args),
 
         options: {
-
-            'no-npm': {
-                type: 'boolean',
-            },
 
             format: {
                 type: 'string',
@@ -55,19 +52,15 @@ export function parse (args: Iterable<string>): Flags {
 
     });
 
-    const { format = 'npm', 'no-npm': no_npm, ...rest } = values;
+    const { format, ...rest } = values;
 
-    formatting: if (format === 'npm'
-                ||  format === 'deno-info'
+    if (    format === 'npm'
+        ||  format === 'deno-info'
     ) {
-
-        if (format === 'npm' && no_npm === true) {
-            break formatting;
-        }
 
         return { ...rest, format };
 
-    } else {
+    } else if (format != null) {
 
         throw new Error(`unknown format - ${ format }`);
 
@@ -111,8 +104,10 @@ export async function main ({
 
     }
 
-    const flags = parse(args);
-    const lines = optional_lines ?? createInterface({ input });
+    const { flags, lines } = await sniff(
+        parse(args),
+        optional_lines ?? createInterface({ input }),
+    );
 
     let code = 0;
 
