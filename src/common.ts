@@ -203,6 +203,40 @@ export async function * cons <T> (
 
 
 
+export async function uncons <T> (
+
+        source: AsyncIterable<T>,
+
+): Promise<[ head: T, tail: AsyncIterable<T> ]> {
+
+    const inner = source[Symbol.asyncIterator]();
+
+    const next = () => inner.next();
+
+    const { done, value: head } = await next();
+
+    if (done) {
+        throw new Error('empty source');
+    }
+
+    const tail = {
+
+        [Symbol.asyncIterator] () {
+
+            return { next };
+
+        },
+
+    };
+
+    return [ head, tail ] as const;
+
+}
+
+
+
+
+
 export function make_predicate <T> ({ extra, ignore, presets }: {
 
         extra?: Predicate<T> | undefined,
