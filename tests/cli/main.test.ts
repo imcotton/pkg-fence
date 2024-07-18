@@ -114,6 +114,7 @@ describe('main', function () {
         const args = [ '--extra', 'acorn-jsx' ];
 
         const input = Readable.from(`
+{
   "version": "1.2.3",
   "lockfileVersion": 2,
     "node_modules/lodash.memoize": {
@@ -160,6 +161,7 @@ describe('main', function () {
     it('collect lodash and nolyfill with extra ignore', async function () {
 
         const lines = make_lines(`
+{
   "version": "1.2.3",
   "lockfileVersion": 2,
     "node_modules/@babel/core/node_modules/convert-source-map": {
