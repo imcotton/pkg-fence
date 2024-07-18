@@ -187,6 +187,22 @@ export function filter <T> (
 
 
 
+export async function * cons <T> (
+
+        head: T,
+        tail: AsyncIterable<T>,
+
+): AsyncIterable<T> {
+
+    yield   head;
+    yield * tail;
+
+}
+
+
+
+
+
 export function make_predicate <T> ({ extra, ignore, presets }: {
 
         extra?: Predicate<T> | undefined,
