@@ -13,7 +13,7 @@ import { alter, update_blobs } from './_shared.ts';
 async function main ({
 
         path = './src/presets/relief.ts',
-        version = '2.1.0',
+        version = '2.2.0',
 
 } = {}) {
 
