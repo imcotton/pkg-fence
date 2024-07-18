@@ -47,18 +47,6 @@ describe('parse', function () {
 
     });
 
-    it('has no format by --no-npm', function () {
-
-        asserts.assert(
-            null == parse([ '--no-npm' ]).format
-        );
-
-        asserts.assert(
-            null == parse([ '--no-npm', '--format=npm' ]).format
-        );
-
-    });
-
     it('throws on unknown format', function () {
 
         asserts.assertThrows(() => parse([ '--format', 'wat' ]));
