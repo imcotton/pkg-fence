@@ -120,7 +120,7 @@ describe('main', function () {
     "node_modules/lodash.memoize": {
     "node_modules/acorn-jsx": {
     "node_modules/side-channel": {
-        `);
+        `.trim());
 
         const print = mock.spy(() => {});
 
