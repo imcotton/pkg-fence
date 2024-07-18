@@ -16,6 +16,7 @@ import {
     ends_with,
     includes_with,
     eqeqeq,
+    uncons,
 
 } from '../src/common.ts';
 
@@ -30,6 +31,36 @@ const eq = asserts.assertEquals;
 
 
 describe('common', function () {
+
+    describe('uncons', function () {
+
+        it('unprepend source', async function () {
+
+            const head = 1;
+            const tail = [ 2, 3 ];
+
+            const source = ReadableStream.from([
+                head,
+                ...tail,
+            ]);
+
+            const [ x, xs ] = await uncons(source);
+            const arr = await Array.fromAsync(xs);
+
+            asserts.assert(x === head);
+            asserts.assertEquals(arr, tail);
+
+        });
+
+        it('throws on empty source', async function () {
+
+            await asserts.assertRejects(async function () {
+                await uncons(ReadableStream.from([]));
+            });
+
+        });
+
+    });
 
     describe('includes_with', function () {
 
