@@ -27,10 +27,10 @@ describe('parse', function () {
 
     });
 
-    it('default format to npm', function () {
+    it('default format to undefined', function () {
 
         asserts.assert(
-            'npm' === parse([ '--ignore', 'foobar' ]).format
+            null == parse([ '--ignore', 'foobar' ]).format
         );
 
     });
