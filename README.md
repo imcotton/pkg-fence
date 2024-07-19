@@ -5,7 +5,7 @@ pkg-fence
 [![npm](https://badgen.net/npm/v/pkg-fence)](https://www.npmjs.com/package/pkg-fence)
 [![codecov](https://codecov.io/gh/imcotton/pkg-fence/graph/badge.svg)](https://codecov.io/gh/imcotton/pkg-fence)
 
-> A command line tool that glance over package lockfile.
+> A command line tool that glance over package dependencies.
 
 
 
