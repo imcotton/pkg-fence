@@ -69,7 +69,7 @@ describe('main', function () {
             const args = cmd == null ? [] : [ cmd ];
 
             const print = mock.spy(function (help: string) {
-                asserts.assertMatch(help, /Reading the NPM lockfile/);
+                asserts.assertMatch(help, /Usage:/);
             });
 
             const quit = mock.spy(() => {});
