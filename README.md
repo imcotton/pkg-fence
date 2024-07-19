@@ -14,17 +14,33 @@ pkg-fence
 Usage
 -----
 
-### Input & Output
-
-The lockfile is reading from `stdin` only. i.e.
+Input source is reading from `stdin`.
 
     cat package-lock.json | npx pkg-fence <...>
 
-> [!NOTE]
-> Currently only support `package-lock.json` or `npm-shrinkwrap.json` 
-> (could use `npm shrinkwrap` to generate it on-the-fly).
 
-Exit code: `0` for empty results, `1` for anything matched.
+
+
+
+### Auto-detect Input Format
+
+- **npm**\
+   from `package-lock.json` or `npm-shrinkwrap.json`
+
+- **deno-info**\
+   from `deno info npm:<pkg>`
+
+- _(otherwise)_\
+   one name per line
+
+
+
+
+
+### Exit Code
+
+- `0` for empty results
+- `1` for anything matched
 
 
 
@@ -33,8 +49,8 @@ Exit code: `0` for empty results, `1` for anything matched.
 ### Built-in Presets
 
 - `--lodash`: pkg naming starts by `lodash.` or equals to `lodash`
-- `--nolyfill`: list of names from https://github.com/SukkaW/nolyfill
-- `--relief`: list of names from https://github.com/es-tooling/module-replacements
+- `--nolyfill`: list of names from https://github.com/SukkaW/nolyfill (**1.0.34**)
+- `--relief`: list of names from https://github.com/es-tooling/module-replacements (**2.2.0**)
   - `--relief-native`
   - `--relief-micro`
   - `--relief-preferred`
@@ -43,15 +59,23 @@ Exit code: `0` for empty results, `1` for anything matched.
 
 
 
-### Extra & Ignore
+### --extra
 
 to specify addition names:
 
-    --extra abc --extra def --extra=foo,bar
+    --extra foo,bar
+    --extra foo    --extra bar
+
+
+
+
+
+### --ignore
 
 to ignore some names:
 
-    --ignore abc --ignore def --ignore=foo,bar
+    --ignore foo,bar
+    --ignore foo    --ignore bar
 
 
 
