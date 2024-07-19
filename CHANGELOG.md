@@ -4,21 +4,21 @@
 
 ### Changed
 
-- **Breaking:** `collect({})` format default to non format
-
-    Old behavior now under `collect({ format: 'npm' })`.
+- Updating presets `--relief` to [v2.2.0](https://github.com/es-tooling/module-replacements/releases/tag/2.2.0) of **module-replacements** ([#35](https://github.com/imcotton/pkg-fence/pull/35))
 
 ### Added
 
-- CLI to support `--no-npm` toggle ([#26](https://github.com/imcotton/pkg-fence/pull/26))
+- CLI to auto-detect input format from `package-lock.json` or `npm-shrinkwrap.json`
 
-    i.e. plain input other than `package-lock.json`, one name per line.
+    In API `collect({ format: 'npm' })`.
 
-- CLI to support `--format=deno-info` ([#29](https://github.com/imcotton/pkg-fence/pull/29))
+- CLI to auto-detect input format from `deno info npm:<...>`
 
-    ```
-    deno info npm:traverse@0.6.9 | npx pkg-fence --format=deno-info --nolyfill
-    ```
+    In API `collect({ format: 'deno-info' })`.
+
+- CLI to auto-detect input format from one pkg name per line
+
+    In API `collect({ })`.
 
 
 
