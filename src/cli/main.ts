@@ -1,74 +1,11 @@
-import { parseArgs } from 'node:util';
 import { createInterface } from 'node:readline';
 import { argv, stdin, exit } from 'node:process';
 
 import type { Fn } from '../common.ts';
-import { collect, type Flags } from '../collect.ts';
+import { collect } from '../collect.ts';
 import { help_text } from './help.ts';
 import { sniff } from './sniff.ts';
-
-
-
-
-
-export function parse (args: Iterable<string>): Flags {
-
-    const { values } = parseArgs({
-
-        args: Array.from(args),
-
-        options: {
-
-            format: {
-                type: 'string',
-            },
-
-            extra: {
-                type: 'string',
-                multiple: true,
-            },
-
-            ignore: {
-                type: 'string',
-                multiple: true,
-            },
-
-            // presets
-
-            lodash: {
-                type: 'boolean',
-            },
-
-            nolyfill: {
-                type: 'boolean',
-            },
-
-            'relief':           { type: 'boolean' },
-            'relief-native':    { type: 'boolean' },
-            'relief-micro':     { type: 'boolean' },
-            'relief-preferred': { type: 'boolean' },
-
-        },
-
-    });
-
-    const { format, ...rest } = values;
-
-    if (    format === 'npm'
-        ||  format === 'deno-info'
-    ) {
-
-        return { ...rest, format };
-
-    } else if (format != null) {
-
-        throw new Error(`unknown format - ${ format }`);
-
-    }
-
-    return rest;
-
-}
+import { parse } from './parse.ts';
 
 
 
