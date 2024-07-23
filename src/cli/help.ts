@@ -34,5 +34,7 @@ Options:
 
     --ignore foo    --ignore bar    --ignore=abc,def
 
+    -v, --invert
+
 `;
 
