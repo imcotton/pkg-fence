@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+### Added
+
+- The `-v`, `--invert` toggle ([#37](https://github.com/imcotton/pkg-fence/pull/37))
+
+    The same behavior as in `grep`.
+
 
 
 
