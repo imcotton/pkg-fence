@@ -13,6 +13,55 @@ import {
 
 describe('collect', function () {
 
+    it('inverts result', async function () {
+
+        const lines = ReadableStream.from([
+            'foo',
+            'wat',
+            'bar',
+        ]);
+
+        const res = await Array.fromAsync(collect({ lines, flags: {
+
+            ignore: [ 'foo' ],
+
+            extra: [ 'wat' ],
+
+            invert: true,
+
+        } }));
+
+        asserts.assertEquals(res, [
+            'foo',
+            'bar',
+        ]);
+
+    });
+
+    it('not inverts result', async function () {
+
+        const lines = ReadableStream.from([
+            'foo',
+            'wat',
+            'bar',
+        ]);
+
+        const res = await Array.fromAsync(collect({ lines, flags: {
+
+            ignore: [ 'foo' ],
+
+            extra: [ 'wat' ],
+
+            invert: false,
+
+        } }));
+
+        asserts.assertEquals(res, [
+            'wat',
+        ]);
+
+    });
+
     it('collect under optional format (id)', async function () {
 
         const lines = ReadableStream.from([
