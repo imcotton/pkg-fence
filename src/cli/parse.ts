@@ -28,6 +28,11 @@ export function parse (args: Iterable<string>): Flags {
                 multiple: true,
             },
 
+            invert: {
+                type: 'boolean',
+                short: 'v',
+            },
+
             // presets
 
             lodash: {

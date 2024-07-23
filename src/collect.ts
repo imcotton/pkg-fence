@@ -1,6 +1,9 @@
 import { make_scanner } from './scanner/index.ts';
 import { gen_presets } from './presets/index.ts';
-import { filter, lookup, split_by_comma, make_predicate } from './common.ts';
+
+import {
+    id, not, filter, lookup, split_by_comma, make_predicate,
+} from './common.ts';
 
 
 
@@ -13,6 +16,8 @@ export interface Flags {
     extra?: ReadonlyArray<string>;
 
     ignore?: ReadonlyArray<string>;
+
+    invert?: boolean;
 
     lodash?: boolean;
 
@@ -36,13 +41,15 @@ export function collect ({ flags, lines }: {
 
 }): AsyncIterable<string> {
 
-    const { format, extra = [], ignore = [], ...rest } = flags;
+    const { format, extra = [], ignore = [], invert, ...rest } = flags;
 
-    const pred = make_predicate({
+    const refine = invert ? not : id;
+
+    const pred = refine(make_predicate({
         extra: lookup(extra.flatMap(split_by_comma)),
         ignore: lookup(ignore.flatMap(split_by_comma)),
         presets: gen_presets(rest),
-    });
+    }));
 
     //    result = filter pred $ make_scanner format $ lines
     const result =                              (
