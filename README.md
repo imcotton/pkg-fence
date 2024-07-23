@@ -81,6 +81,14 @@ to ignore some names:
 
 
 
+### --invert <sup>(-v)</sup>
+
+invert the search result
+
+
+
+
+
 Available
 ---------
 
