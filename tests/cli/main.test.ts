@@ -114,6 +114,29 @@ describe('main', function () {
 
     });
 
+    it('inverts conditions via --invert(-v)', async function () {
+
+        const args = [ '--extra', 'foo', '-v' ];
+
+        const lines = ReadableStream.from([
+            'foo',
+            'bar',
+        ]);
+
+        const print = mock.spy(() => {});
+
+        const quit = mock.spy(() => {});
+
+        await main({ args, lines, print, quit });
+
+        mock.assertSpyCallArg(print, 0, 0, 'bar');
+        mock.assertSpyCalls(print, 1);
+
+        mock.assertSpyCallArg(quit, 0, 0, 1);
+        mock.assertSpyCalls(quit, 1);
+
+    });
+
     it('collect lodash and nolyfill with extra ignore', async function () {
 
         const lines = make_lines(`
