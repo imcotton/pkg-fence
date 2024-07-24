@@ -2,7 +2,9 @@
 
 import { allPackages } from 'nolyfill/packages/tools/cli/src/all-packages.ts';
 
-import { alter, update_blobs } from './_shared.ts';
+import pkg from '../../deno.json' with { type: 'json' };
+
+import { alter, update_blobs, extract_tag } from './_shared.ts';
 
 
 
@@ -11,7 +13,7 @@ import { alter, update_blobs } from './_shared.ts';
 async function main ({
 
         path = './src/presets/nolyfill.ts',
-        version = '1.0.34',
+        version = extract_tag(pkg.imports['nolyfill/']),
 
 } = {}) {
 
