@@ -1,6 +1,6 @@
 #!/usr/bin/env -S deno run --allow-read=./src/presets/nolyfill.ts --allow-write=./src/presets/nolyfill.ts
 
-import { allPackages } from '@nolyfill/packages/tools/cli/src/all-packages.ts';
+import { allPackages } from 'nolyfill/packages/tools/cli/src/all-packages.ts';
 
 import { alter, update_blobs } from './_shared.ts';
 
