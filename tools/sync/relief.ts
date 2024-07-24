@@ -4,7 +4,9 @@ import    native from 'module-replacements/manifests/native.json'          with 
 import     micro from 'module-replacements/manifests/micro-utilities.json' with { type: 'json' };
 import preferred from 'module-replacements/manifests/preferred.json'       with { type: 'json' };
 
-import { alter, update_blobs } from './_shared.ts';
+import pkg from '../../deno.json' with { type: 'json' };
+
+import { alter, update_blobs, extract_tag } from './_shared.ts';
 
 
 
@@ -13,7 +15,7 @@ import { alter, update_blobs } from './_shared.ts';
 async function main ({
 
         path = './src/presets/relief.ts',
-        version = '2.2.0',
+        version = extract_tag(pkg.imports['module-replacements/']),
 
 } = {}) {
 
