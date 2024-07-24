@@ -37,6 +37,8 @@ export const replace_all: Fn<RegExp, Fn<string, Fn<string, string>>>
 
 export const update_blobs = replace_all(/(?<=\/blob\/)[^/]+/g);
 
+export const extract_tag = replace_all (/.*@([^/]+).*/g) ('$1');
+
 
 
 
