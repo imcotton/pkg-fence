@@ -1,8 +1,8 @@
 #!/usr/bin/env -S deno run --allow-read=./src/presets/relief.ts --allow-write=./src/presets/relief.ts
 
-import    native from '@est-mod-rep/manifests/native.json'          with { type: 'json' };
-import     micro from '@est-mod-rep/manifests/micro-utilities.json' with { type: 'json' };
-import preferred from '@est-mod-rep/manifests/preferred.json'       with { type: 'json' };
+import    native from 'module-replacements/manifests/native.json'          with { type: 'json' };
+import     micro from 'module-replacements/manifests/micro-utilities.json' with { type: 'json' };
+import preferred from 'module-replacements/manifests/preferred.json'       with { type: 'json' };
 
 import { alter, update_blobs } from './_shared.ts';
 
