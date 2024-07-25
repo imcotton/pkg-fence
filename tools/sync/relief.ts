@@ -24,21 +24,21 @@ async function main ({
         .then(update_blobs(version))
 
         .then(alter(
-            'Array.of( // -native',
+                 ' = [ // -native',
                moduleNames(native),
-                   '); // -native',
+                   ']; // -native',
         ))
 
         .then(alter(
-            'Array.of( // -micro',
+                 ' = [ // -micro',
                moduleNames(micro),
-                   '); // -micro',
+                   ']; // -micro',
         ))
 
         .then(alter(
-            'Array.of( // -preferred',
+                 ' = [ // -preferred',
                moduleNames(preferred),
-                   '); // -preferred',
+                   ']; // -preferred',
         ))
 
     ;
