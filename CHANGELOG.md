@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+
+
+
+
+## [0.6.1] - 2024-07-25
+
 ### Added
 
 - The `-v`, `--invert` toggle ([#37](https://github.com/imcotton/pkg-fence/pull/37))
