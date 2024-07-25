@@ -22,9 +22,9 @@ async function main ({
         .then(update_blobs(version))
 
         .then(alter(
-            'Array.of(',
+            ' = [',
                 allPackages,
-            ');',
+            '];',
         ))
 
     ;
