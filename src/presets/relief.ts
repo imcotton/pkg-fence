@@ -6,7 +6,7 @@ import { lookup, type Predicate } from '../common.ts';
 
 // https://github.com/es-tooling/module-replacements/blob/2.2.0/manifests/native.json
 
-export const native_list: ReadonlyArray<string> = Array.of( // -native
+export const native_list: ReadonlyArray<string> = [ // -native
 
     'date',
     'for-each',
@@ -140,7 +140,7 @@ export const native_list: ReadonlyArray<string> = Array.of( // -native
     'index-of',
     'last-index-of',
 
-); // -native
+]; // -native
 
 export const native_check: Predicate<string> = lookup(native_list);
 
@@ -150,7 +150,7 @@ export const native_check: Predicate<string> = lookup(native_list);
 
 // https://github.com/es-tooling/module-replacements/blob/2.2.0/manifests/micro-utilities.json
 
-export const micro_list: ReadonlyArray<string> = Array.of( // -micro
+export const micro_list: ReadonlyArray<string> = [ // -micro
 
     'call-bind',
     'es-get-iterator',
@@ -175,7 +175,7 @@ export const micro_list: ReadonlyArray<string> = Array.of( // -micro
     'is-odd',
     'is-even',
 
-); // -micro
+]; // -micro
 
 export const micro_check: Predicate<string> = lookup(micro_list);
 
@@ -185,7 +185,7 @@ export const micro_check: Predicate<string> = lookup(micro_list);
 
 // https://github.com/es-tooling/module-replacements/blob/2.2.0/manifests/preferred.json
 
-export const preferred_list: ReadonlyArray<string> = Array.of( // -preferred
+export const preferred_list: ReadonlyArray<string> = [ // -preferred
 
     'bluebird',
     'cpx',
@@ -534,7 +534,7 @@ export const preferred_list: ReadonlyArray<string> = Array.of( // -preferred
     'uri-js',
     'readable-stream',
 
-); // -preferred
+]; // -preferred
 
 export const preferred_check: Predicate<string> = lookup(preferred_list);
 
