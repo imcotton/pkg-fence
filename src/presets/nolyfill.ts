@@ -6,7 +6,7 @@ import { lookup, type Predicate } from '../common.ts';
 
 // https://github.com/SukkaW/nolyfill/blob/1.0.34/packages/tools/cli/src/all-packages.ts
 
-export const list: ReadonlyArray<string> = Array.of(
+export const list: ReadonlyArray<string> = [
 
     'abab',
     'array-buffer-byte-length',
@@ -109,7 +109,7 @@ export const list: ReadonlyArray<string> = Array.of(
     'which-boxed-primitive',
     'which-typed-array',
 
-);
+];
 
 
 
