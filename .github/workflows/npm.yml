@@ -25,12 +25,24 @@ jobs:
           node-version: v20
           registry-url: https://registry.npmjs.org/
 
-      - uses: denoland/setup-deno@v1
-        with:
-          deno-version: v1
+      - name: Prebuild
+        run: |-
 
-      - name: Build the pkg
-        run: deno task build-npm
+          VER=$(jq -r '.version' deno.json)
+
+          cat tmp-package.json | sed "s/0.0.0-VERSION/$VER/" > package.json
+
+          find ./src -type f -name '*.ts' -exec perl -i -pe "s/.ts';$/.js';/g" {} \;
+
+          npm install --no-{fund,save,lock} typescript@5.5.4 @types/node@18
+
+      - name: Build by tsc
+        run: npx tsc ./src/**/*.ts
+                     --strict
+                     --outDir ./dist
+                     --target es2022
+                     --module node16
+                     --moduleResolution node16
 
       - name: Publish to npm (next)
         if: contains(github.ref_name, '-') == true
