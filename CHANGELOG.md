@@ -2,6 +2,26 @@
 
 ## Unreleased
 
+### Changed
+
+- NPM built via `tsc` instead of `esbuild` ([#39](https://github.com/imcotton/pkg-fence/pull/39))
+
+    Which means no longer bundle for the NPM target,
+    this also leaves more clear delta between each releases.
+
+### Added
+
+- More NPM exports that aligned with JSR ([#39](https://github.com/imcotton/pkg-fence/pull/39))
+
+    ```json
+    "exports": {
+      "./presets": "./dist/presets/index.js",
+      "./scanner": "./dist/scanner/index.js",
+      "./collect": "./dist/collect.js",
+      "./main": "./dist/cli/main.js"
+    }
+    ```
+
 
 
 
