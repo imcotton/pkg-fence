@@ -1,0 +1,25 @@
+name: Out of Sync
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # daily
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Setup repo
+        uses: actions/checkout@v4
+
+      - name: Setup Deno
+        uses: denoland/setup-deno@v1
+        with:
+          deno-version: v1.x
+
+      - name: Sync
+        run: deno task sync-{nolyfill,relief}
+
+      - name: Outdated
+        run: git diff --exit-code
+
