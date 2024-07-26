@@ -15,8 +15,7 @@
     "./main": "./dist/cli/main.js"
   },
   "files": [
-    "./dist/cli/bin.js",
-    "./dist/cli/main.js",
+    "./dist",
     "./LICENSE.txt",
     "./CHANGELOG.md",
     "./README.md"
