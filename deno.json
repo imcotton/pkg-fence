@@ -19,8 +19,7 @@
   },
   "tasks": {
     "sync-relief": "./tools/sync/relief.ts",
-    "sync-nolyfill": "./tools/sync/nolyfill.ts",
-    "build-npm": "mkdir -p dist/cli && ./tools/build-npm.ts"
+    "sync-nolyfill": "./tools/sync/nolyfill.ts"
   },
   "compilerOptions": {
     "strict": true,
