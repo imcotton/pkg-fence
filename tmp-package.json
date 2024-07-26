@@ -9,6 +9,9 @@
   },
   "bin": "./dist/cli/bin.js",
   "exports": {
+    "./presets": "./dist/presets/index.js",
+    "./scanner": "./dist/scanner/index.js",
+    "./collect": "./dist/collect.js",
     "./main": "./dist/cli/main.js"
   },
   "files": [
