@@ -18,7 +18,9 @@ jobs:
           deno-version: v1.x
 
       - name: Sync
-        run: deno task sync-{nolyfill,relief}
+        run: |-
+          deno task sync-nolyfill
+          deno task sync-relief
 
       - name: Outdated
         run: git diff --exit-code
