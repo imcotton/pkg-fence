@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## [0.6.3] - 2024-08-01
+
 ### Changed
 
 - Updating presets `--relief` to [v2.3.0](https://github.com/es-tooling/module-replacements/releases/tag/2.3.0) of **module-replacements** ([#40](https://github.com/imcotton/pkg-fence/pull/40))
