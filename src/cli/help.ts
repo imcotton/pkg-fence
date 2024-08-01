@@ -21,7 +21,7 @@ Builtin Presets:
 
     --nolyfill                    (via SukkaW/nolyfill v1.0.34)
 
-    --relief                      (via es-tooling/module-replacements v2.2.0)
+    --relief                      (via es-tooling/module-replacements v2.3.0)
         --relief-native
         --relief-micro
         --relief-preferred
