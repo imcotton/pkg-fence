@@ -4,7 +4,7 @@ import { lookup, type Predicate } from '../common.ts';
 
 
 
-// https://github.com/es-tooling/module-replacements/blob/2.2.0/manifests/native.json
+// https://github.com/es-tooling/module-replacements/blob/2.3.0/manifests/native.json
 
 export const native_list: ReadonlyArray<string> = [ // -native
 
@@ -73,14 +73,13 @@ export const native_list: ReadonlyArray<string> = [ // -native
     'math.log10',
     'math.log1p',
     'math.sign',
-    'math.sinh',
     'number.isfinite',
     'number.isinteger',
     'number.isnan',
     'number.issafeinteger',
     'number.parsefloat',
     'number.parseint',
-    'number.prototype.exponential',
+    'number.prototype.toexponential',
     'object-is',
     'object.assign',
     'object-assign',
@@ -113,7 +112,7 @@ export const native_list: ReadonlyArray<string> = [ // -native
     'string.prototype.trimend',
     'string.prototype.trimleft',
     'string.prototype.trimright',
-    'string.prototype.trimStart',
+    'string.prototype.trimstart',
     'string.raw',
     'symbol.prototype.description',
     'typed-array-buffer',
@@ -148,7 +147,7 @@ export const native_check: Predicate<string> = lookup(native_list);
 
 
 
-// https://github.com/es-tooling/module-replacements/blob/2.2.0/manifests/micro-utilities.json
+// https://github.com/es-tooling/module-replacements/blob/2.3.0/manifests/micro-utilities.json
 
 export const micro_list: ReadonlyArray<string> = [ // -micro
 
@@ -162,7 +161,7 @@ export const micro_list: ReadonlyArray<string> = [ // -micro
     'is-number',
     'is-number-object',
     'is-plain-object',
-    'is-primitve',
+    'is-primitive',
     'is-regexp',
     'is-string',
     'is-travis',
@@ -183,7 +182,7 @@ export const micro_check: Predicate<string> = lookup(micro_list);
 
 
 
-// https://github.com/es-tooling/module-replacements/blob/2.2.0/manifests/preferred.json
+// https://github.com/es-tooling/module-replacements/blob/2.3.0/manifests/preferred.json
 
 export const preferred_list: ReadonlyArray<string> = [ // -preferred
 
