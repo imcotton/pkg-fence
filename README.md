@@ -50,7 +50,7 @@ Input source is reading from `stdin`.
 
 - `--lodash`: pkg naming starts by `lodash.` or equals to `lodash`
 - `--nolyfill`: list of names from https://github.com/SukkaW/nolyfill (**1.0.34**)
-- `--relief`: list of names from https://github.com/es-tooling/module-replacements (**2.3.0**)
+- `--relief`: list of names from https://github.com/es-tooling/module-replacements (**2.3.2**)
   - `--relief-native`
   - `--relief-micro`
   - `--relief-preferred`
