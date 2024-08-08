@@ -13,17 +13,29 @@ import type { Predicate } from '../common.ts';
 
 
 
-export function * gen_presets (param: Partial<Readonly<Record<
+export type Param = Partial<Readonly<Record<Toggle, boolean | undefined>>>;
 
-        | 'lodash'
-        | 'nolyfill'
+export type Toggle =
 
-        | 'relief'
-        | 'relief-native'
-        | 'relief-micro'
-        | 'relief-preferred'
+    | 'lodash'
+    | 'nolyfill'
 
-, boolean | undefined>>>): Iterable<Predicate<string>> {
+    | 'relief'
+    | 'relief-native'
+    | 'relief-micro'
+    | 'relief-preferred'
+
+;
+
+
+
+
+
+export function * gen_presets (
+
+        param: Param,
+
+): Iterable<Predicate<string>> {
 
     if (param.lodash === true) {
         yield lodash.check;
