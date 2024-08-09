@@ -8,6 +8,8 @@ import { lookup, make_predicate } from '../../src/common.ts';
 import {
 
     gen_presets,
+    lodash,
+    nolyfill,
     relief,
 
 } from '../../src/presets/index.ts';
@@ -19,6 +21,20 @@ import {
 describe('presets', function () {
 
     describe('gen_presets', function () {
+
+        it(`gens all`, function () {
+
+            const presets = Array.from(gen_presets({ all: true }));
+
+            asserts.assertEquals(presets, [
+                lodash.check,
+                nolyfill.check,
+                relief.native_check,
+                relief.micro_check,
+                relief.preferred_check,
+            ]);
+
+        });
 
         it(`gens all reliefs`, function () {
 
