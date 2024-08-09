@@ -2,6 +2,14 @@
 
 ## Unreleased
 
+### Added
+
+- The `--all` toggle to enable all presets ([#43](https://github.com/imcotton/pkg-fence/pull/43))
+
+
+
+
+
 ## [0.6.4] - 2024-08-03
 
 ### Changed
