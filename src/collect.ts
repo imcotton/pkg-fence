@@ -19,6 +19,8 @@ export interface Flags {
 
     invert?: boolean;
 
+    all?: boolean;
+
     lodash?: boolean;
 
     nolyfill?: boolean;

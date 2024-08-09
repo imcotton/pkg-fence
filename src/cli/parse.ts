@@ -33,6 +33,10 @@ export function parse (args: Iterable<string>): Flags {
                 short: 'v',
             },
 
+            all: {
+                type: 'boolean',
+            },
+
             // presets
 
             lodash: {

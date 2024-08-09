@@ -7,7 +7,7 @@ export {    nolyfill };
 import * as relief from './relief.ts';
 export {    relief };
 
-import type { Predicate } from '../common.ts';
+import { type Predicate, or } from '../common.ts';
 
 
 
@@ -16,6 +16,8 @@ import type { Predicate } from '../common.ts';
 export type Param = Partial<Readonly<Record<Toggle, boolean | undefined>>>;
 
 export type Toggle =
+
+    | 'all'
 
     | 'lodash'
     | 'nolyfill'
@@ -31,21 +33,33 @@ export type Toggle =
 
 
 
+const on = (t: Toggle) => (p: Param) => p[t] === true;
+
+const on_all = on('all');
+
+const all_OR_lodash   = or(on_all, on('lodash'));
+const all_OR_nolyfill = or(on_all, on('nolyfill'));
+const all_OR_relief   = or(on_all, on('relief'));
+
+
+
+
+
 export function * gen_presets (
 
         param: Param,
 
 ): Iterable<Predicate<string>> {
 
-    if (param.lodash === true) {
+    if (all_OR_lodash(param)) {
         yield lodash.check;
     }
 
-    if (param.nolyfill === true) {
+    if (all_OR_nolyfill(param)) {
         yield nolyfill.check;
     }
 
-    if (param.relief === true) {
+    if (all_OR_relief(param)) {
 
         yield * [
             relief.native_check,
