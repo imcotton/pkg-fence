@@ -17,6 +17,8 @@ Usage:
 
 Builtin Presets:
 
+    --all
+
     --lodash
 
     --nolyfill                    (via SukkaW/nolyfill v1.0.34)
