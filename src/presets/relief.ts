@@ -4,7 +4,7 @@ import { lookup, type Predicate } from '../common.ts';
 
 
 
-// https://github.com/es-tooling/module-replacements/blob/2.3.2/manifests/native.json
+// https://github.com/es-tooling/module-replacements/blob/2.4.0/manifests/native.json
 
 export const native_list: ReadonlyArray<string> = [ // -native
 
@@ -72,6 +72,7 @@ export const native_list: ReadonlyArray<string> = [ // -native
     'has-tostringtag',
     'hasown',
     'index-of',
+    'inherits',
     'is-nan',
     'iterate-iterator',
     'iterate-value',
@@ -147,7 +148,7 @@ export const native_check: Predicate<string> = lookup(native_list);
 
 
 
-// https://github.com/es-tooling/module-replacements/blob/2.3.2/manifests/micro-utilities.json
+// https://github.com/es-tooling/module-replacements/blob/2.4.0/manifests/micro-utilities.json
 
 export const micro_list: ReadonlyArray<string> = [ // -micro
 
@@ -181,7 +182,7 @@ export const micro_check: Predicate<string> = lookup(micro_list);
 
 
 
-// https://github.com/es-tooling/module-replacements/blob/2.3.2/manifests/preferred.json
+// https://github.com/es-tooling/module-replacements/blob/2.4.0/manifests/preferred.json
 
 export const preferred_list: ReadonlyArray<string> = [ // -preferred
 
@@ -194,6 +195,10 @@ export const preferred_list: ReadonlyArray<string> = [ // -preferred
     'eslint-plugin-import',
     'eslint-plugin-node',
     'eslint-plugin-react',
+    'fast-glob',
+    'glob',
+    'globby',
+    'invariant',
     'is-builtin-module',
     'jquery',
     'lodash',
@@ -529,8 +534,10 @@ export const preferred_list: ReadonlyArray<string> = [ // -preferred
     'qs',
     'readable-stream',
     'rimraf',
+    'shortid',
     'sort-object',
     'tempy',
+    'traverse',
     'underscore',
     'uri-js',
 
