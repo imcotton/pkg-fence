@@ -1,4 +1,4 @@
-#!/usr/bin/env -S deno run --allow-read --allow-write ./src/presets/relief.ts
+#!/usr/bin/env -S deno run --allow-read=./src/presets/relief.ts --allow-write=./src/presets/relief.ts
 
 import    native from 'module-replacements/manifests/native.json'          with { type: 'json' };
 import     micro from 'module-replacements/manifests/micro-utilities.json' with { type: 'json' };
