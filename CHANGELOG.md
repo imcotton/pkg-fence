@@ -6,6 +6,10 @@
 
 - The `--all` toggle to enable all presets ([#43](https://github.com/imcotton/pkg-fence/pull/43))
 
+### Changed
+
+- Updating presets `--relief` to [v2.4.0](https://github.com/es-tooling/module-replacements/releases/tag/2.4.0) of **module-replacements** ([#44](https://github.com/imcotton/pkg-fence/pull/44))
+
 
 
 
