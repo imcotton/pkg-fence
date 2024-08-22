@@ -25,7 +25,7 @@ describe('scanner', function () {
 
         const scanner = make_scanner();
 
-        const mine = ReadableStream.from(`foobar`);
+        const mine = ReadableStream.from(Array.from(`foobar`));
         const copy = scanner(mine);
 
         asserts.assertStrictEquals(copy, mine);
