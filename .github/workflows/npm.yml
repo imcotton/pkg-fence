@@ -32,9 +32,7 @@ jobs:
 
           cat tmp-package.json | sed "s/0.0.0-VERSION/$VER/" > package.json
 
-          find ./src -type f -name '*.ts' -exec perl -i -pe "s/.ts';$/.js';/g" {} \;
-
-          npm install --no-{fund,save,lock} typescript@5.5.4 @types/node@18
+          npm install --no-{fund,save,lock} typescript@5.7.0-beta @types/node@18
 
       - name: Build by tsc
         run: npx tsc ./src/**/*.ts
@@ -43,6 +41,7 @@ jobs:
                      --target es2022
                      --module node16
                      --moduleResolution node16
+                     --rewriteRelativeImportExtensions
 
       - name: Publish to npm (next)
         if: contains(github.ref_name, '-') == true
