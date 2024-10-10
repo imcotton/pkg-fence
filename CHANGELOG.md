@@ -4,6 +4,14 @@
 
 ### Changed
 
+- NPM built via `tsc` with `--rewriteRelativeImportExtensions` ([#48](https://github.com/imcotton/pkg-fence/pull/48))
+
+    CI say goodby to:
+
+    ```sh
+    find ./src -type f -name '*.ts' -exec perl -i -pe "s/.ts';$/.js';/g" {} \;
+    ```
+
 - Updating presets `--relief` to [v2.5.0](https://github.com/es-tooling/module-replacements/releases/tag/2.5.0) of **module-replacements** ([#47](https://github.com/imcotton/pkg-fence/pull/47))
 
 
