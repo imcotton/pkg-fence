@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## [0.6.6] - 2024-10-11
+
 ### Changed
 
 - NPM built via `tsc` with `--rewriteRelativeImportExtensions` ([#48](https://github.com/imcotton/pkg-fence/pull/48))
