@@ -8,7 +8,7 @@
 
 - NPM built via `tsc` with `--rewriteRelativeImportExtensions` ([#48](https://github.com/imcotton/pkg-fence/pull/48))
 
-    CI say goodby to:
+    CI say goodbye to:
 
     ```sh
     find ./src -type f -name '*.ts' -exec perl -i -pe "s/.ts';$/.js';/g" {} \;
