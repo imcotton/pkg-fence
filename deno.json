@@ -22,6 +22,9 @@
     "sync-nolyfill": "./tools/sync/nolyfill.ts"
   },
   "compilerOptions": {
+    "types": [
+      "npm:@types/node"
+    ],
     "strict": true,
     "noImplicitAny": true,
     "noUnusedLocals": true,
