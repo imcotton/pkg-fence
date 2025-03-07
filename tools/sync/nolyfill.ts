@@ -1,4 +1,4 @@
-#!/usr/bin/env -S deno run --allow-read=./src/presets/nolyfill.ts --allow-write=./src/presets/nolyfill.ts
+#!/usr/bin/env -S deno run -R=./src/presets/nolyfill.ts -W=./src/presets/nolyfill.ts
 
 import { allPackages } from 'nolyfill/packages/tools/cli/src/all-packages.ts';
 
