@@ -1,5 +1,5 @@
 {
-  "$schema": "https://deno.land/x/deno/cli/schemas/config-file.v1.json",
+  "$schema": "https://raw.esm.sh/gh/denoland/deno@v2.7.4/cli/schemas/config-file.v1.json",
   "name": "@imcotton/pkg-fence",
   "version": "0.6.6",
   "description": "A command line tool that glance over package dependencies.",
