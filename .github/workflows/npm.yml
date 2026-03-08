@@ -9,7 +9,7 @@ jobs:
 
   publish:
 
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-slim
     timeout-minutes: 3
 
     permissions:
